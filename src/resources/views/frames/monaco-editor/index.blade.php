@@ -37,7 +37,7 @@
         </style>
     @endif
 </head>
-<body @if(!Request::get('examples')) onfocus="frameFocused()" @endif style="overflow:hidden; background:#{{ ($background ?? '1e1e1e') }};">
+<body @if(!Request::get('examples')) onfocus="frameFocused()" style="overflow:hidden; background:#{{ ($background ?? '1e1e1e') }};" @endif>
 
     @if(Request::get('examples'))
         {{-- If we set ?examples=true we can see some examples of the editor --}}
