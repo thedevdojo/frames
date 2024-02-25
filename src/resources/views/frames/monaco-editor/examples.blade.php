@@ -9,7 +9,7 @@
     }
 </style>
 
-<div class="w-full px-10 py-5">
+<div class="w-full px-10 py-5 bg-white">
     <h1 class="text-xl font-bold flex items-center space-x-1.5">
         <span>Monaco Editor</span>
         <span class="bg-blue-500 font-medium rounded-full px-3 py-1 text-white text-xs">iframe component</span>
@@ -99,7 +99,7 @@
 &lt;/iframe&gt;</code></pre>
             </div>
         </div>
-        <div class="p-10 col-span-2">
+        <div class="p-10 col-span-2 bg-white">
             <div class="w-full flex rounded-t-md bg-gray-900 space-x-2 w-full flex items-center px-3 py-2 text-sm">
                 <select x-model="language" class="px-3 py-1 rounded bg-gray-700 text-gray-100">
                     <template x-for="lang in languages">
@@ -131,7 +131,7 @@ codeEditor.set('let awesome = true;');</code></pre>
                 <button x-on:click="runCode()" class="px-4 py-2 rounded-md text-white bg-blue-500">Run Code</button>
             </div>
         </div>
-        <div class="p-10 col-span-2 rounded-md overflow-hidden">
+        <div class="p-10 col-span-2 rounded-md overflow-hidden bg-white">
             
             <iframe id="example-02" class="w-full min-h-[300px] rounded-md" border="0" style="background: #{{ $background }}" src="{{ route('frames-monaco-editor') }}?language=javascript"></iframe>
         </div>
@@ -156,7 +156,7 @@ codeEditor.addEventListener('ready', function(event){
 });</code></pre>
             </div>
         </div>
-        <div class="p-10 col-span-2 rounded-md overflow-hidden">
+        <div class="p-10 col-span-2 rounded-md overflow-hidden bg-white">
             <iframe id="example-03" class="w-full overflow-hidden min-h-[300px] rounded-md" border="0" style="background: #{{ $background }}" src="{{ route('frames-monaco-editor') }}?language=javascript"></iframe>
         </div>
     </div>
@@ -191,7 +191,7 @@ alert(code);</code></pre>
                 <button x-on:click="runCode()" class="px-4 py-2 rounded-md text-white bg-blue-500">Run Code</button>
             </div>
         </div>
-        <div class="p-10 col-span-2 rounded-md overflow-hidden">
+        <div class="p-10 col-span-2 rounded-md overflow-hidden bg-white">
             
             <iframe id="example-04" class="w-full min-h-[300px] rounded-md" border="0" style="background: #{{ $background }}" src="{{ route('frames-monaco-editor') }}?language=javascript"></iframe>
         </div>
@@ -224,7 +224,7 @@ codeEditor.addEventListener('updated', function(event){
 });</code></pre>
             </div>
         </div>
-        <div class="p-10 col-span-2 rounded-md overflow-hidden">
+        <div class="p-10 col-span-2 rounded-md overflow-hidden bg-white">
             <iframe id="example-05" class="w-full overflow-hidden min-h-[300px] rounded-md" border="0" style="background: #{{ $background }}" src="{{ route('frames-monaco-editor') }}?language=javascript"></iframe>
             <div class="bg-gray-50 font-mono text-xs p-3 mt-3 rounded-md border border-gray-100 relative overflow-hidden">
                 <div class="bg-gray-200 px-2 py-1 text-gray-600 rounded-br-lg text-[0.65rem] uppercase absolute top-0 left-0">Output</div>
@@ -253,7 +253,7 @@ codeEditor.addEventListener('focused', function(event){
 });</code></pre>
             </div>
         </div>
-        <div class="p-10 col-span-2 rounded-md overflow-hidden">
+        <div class="p-10 col-span-2 rounded-md overflow-hidden bg-white">
             <iframe id="example-06" class="w-full overflow-hidden min-h-[300px] rounded-md" border="0" style="background: #{{ $background }}" src="{{ route('frames-monaco-editor') }}?language=javascript"></iframe>
         </div>
     </div>
@@ -278,7 +278,7 @@ codeEditor.addEventListener('blurred', function(event){
 });</code></pre>
             </div>
         </div>
-        <div class="p-10 col-span-2 rounded-md overflow-hidden">
+        <div class="p-10 col-span-2 rounded-md overflow-hidden bg-white">
             <iframe id="example-07" class="w-full overflow-hidden min-h-[300px] rounded-md" border="0" style="background: #{{ $background }}" src="{{ route('frames-monaco-editor') }}?language=javascript"></iframe>
         </div>
     </div>
