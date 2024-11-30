@@ -3,6 +3,8 @@
 
 <script>
    
+   
+
     let theme = {!! ffMonacoEditorTheme($background) !!};
     window.language = '{{ Request::get("language") ?? "plaintext" }}';
     window.editor = null;
@@ -14,6 +16,29 @@
     const IFRAME_ID = (IFRAME) ? window.frameElement.id : null;
     const LOADER = document.getElementById('loader');
     const CONTENT = document.getElementById('content');
+
+    // Forward all keystrokes to parent window
+    document.addEventListener('keydown', function(event) {
+        if (window.parent) {
+            // Prevent default behavior for Cmd+S / Ctrl+S and Cmd+P / Ctrl+P
+            if (
+                (event.key === 's' || event.key === 'p') && 
+                (event.metaKey || event.ctrlKey)
+            ) {
+                event.preventDefault();
+            }
+
+            window.parent.postMessage({
+                type: 'keyEvent',
+                key: event.key,
+                keyCode: event.keyCode,
+                ctrlKey: event.ctrlKey,
+                altKey: event.altKey,
+                shiftKey: event.shiftKey,
+                metaKey: event.metaKey
+            }, '*');
+        }
+    });
 
     // window.callBootMethod = function(){}
     // window.addEventListener('boot', callBootMethod);
