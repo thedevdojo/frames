@@ -25,6 +25,12 @@
             }
         @endif
 
+        #editor {
+            resize: vertical;
+            overflow: auto;
+            height: 100%;
+        }
+
         #content, #editor-placeholder {
             padding-top: {{ Request::get("paddingTop") ?? "12px"; }}
         }
@@ -48,7 +54,7 @@
         </div>
 
         <div id="content" class="relative z-10 w-full h-full">
-            <div id="editor" wire:ignore class="w-full h-full text-lg"></div>
+            <div id="editor" wire:ignore class="w-full h-full overflow-hidden text-lg"></div>
             <div id="editor-placeholder" class="w-full text-sm font-mono absolute z-50 text-gray-500 ml-14 -translate-x-0.5 mt-0.5 left-0 top-0">Start typing here</div>
         </div>
         @include('frames::monaco-editor.javascript.main')

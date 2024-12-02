@@ -52,6 +52,7 @@
             lineNumbersMinChars: 3,
             automaticLayout: true,
             language: initialLanguage,
+            fixedOverflowWidgets: true,
             minimap: { enabled: false },
         });
 
@@ -80,7 +81,6 @@
         });
 
         ready();
-
     });
     
 
@@ -90,6 +90,16 @@
 
     window.set = function(code){
         editor.getModel().setValue( code );
+    }
+
+    window.resizeContainer = function(){
+        editor.layout();
+    }
+
+    window.setDimensionsAndShow = function(width, height){
+        setTimeout(function(){
+            hideLoader();
+        }, 4000);
     }
 
     window.get = function(){
@@ -110,12 +120,21 @@
     });
 
     window.ready = function(){
-        LOADER.classList.add('opacity-0');
-        setTimeout(function(){
-            LOADER.remove();
-        }, 1050);
+        hideLoader();
         editor.getModel().setValue( window.initialValue );
         window.dispatchEvent(new CustomEvent('ready'));
+    }
+
+    window.showLoader = function(){
+        LOADER.classList.remove('opacity-0');
+        LOADER.classList.remove('invisible');
+        LOADER.classList.remove('pointer-events-none');
+    }
+
+    window.hideLoader = function(){
+        LOADER.classList.add('opacity-0');
+        LOADER.classList.add('invisible');
+        LOADER.classList.add('pointer-events-none');
     }
 
     window.frameFocused = function(){
